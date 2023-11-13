@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="R2WSmokeTests" verbose="1" parallel="none">
+
+    <listeners>
+        <listener class-name="r2wautomation.listeners.TestListener"/>
+    </listeners>
+
+    <test name="MerchantLoginTests">
+        <parameter name="browser" value="edge"></parameter>
+        <classes>
+            <class name="r2wautomation.R2WSmokeTests.Merchant.MerchantLoginTests"></class>
+        </classes>
+    </test>
+
+    <!--test name="PositiveLoginTests-FF">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="local.HLVTestApp.loginandsignuptests.PositiveLoginTests">
+            </class>
+        </classes>
+    </test-->
+
+</suite>
