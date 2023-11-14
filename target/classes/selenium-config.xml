@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <!-- Supported browserName values: Chrome, Firefox, Edge -->
-    <browserName>Firefox</browserName>
+    <browserName>Edge</browserName>
 
     <!-- Supported environment name: r2w replica, r2w mirror, karcher,... -->
     <environmentName>R2W Replica Environment</environmentName>
@@ -12,7 +12,9 @@
     <!-- Timeout period in seconds -->
     <timeout>10</timeout>
 
-    <takeScreenshots>true</takeScreenshots>
+    <!-- Start WebDriver in Headless mode -->
+    <headlessDriver>false</headlessDriver>
 
+    <!-- Report name displayed in the Extent Report -->
     <reportName>Ready2Wash Automation Smoke Results</reportName>
 </config>
