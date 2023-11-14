@@ -3,6 +3,7 @@ package r2wautomation.base;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserDriverFactory {
@@ -33,11 +34,11 @@ public class BrowserDriverFactory {
 
             case "edge":
                 System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
-                driver.set(new FirefoxDriver());
+                driver.set(new EdgeDriver());
                 break;
 
             default:
-                log.info("Do not know how to start: " + browser + ", starting chrome.");
+                log.info("Do not know how to start: " + browser + ", starting default Chrome browser.");
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
                 driver.set(new ChromeDriver());
                 break;
