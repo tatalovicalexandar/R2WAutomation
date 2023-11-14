@@ -36,6 +36,9 @@ public class SeleniumConfig {
     public String getReportName() {
         return getConfigValue(configFile, "reportName");
     }
+    public String getHeadlessDriver() {
+        return getConfigValue(configFile, "headlessDriver");
+    }
     private static String getConfigValue(String configFile, String propertyName) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
