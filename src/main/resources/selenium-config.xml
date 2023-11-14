@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-    <!-- Supported browserName values: chrome, firefox -->
-    <browserName>firefox</browserName>
+    <!-- Supported browserName values: Chrome, Firefox, Edge -->
+    <browserName>Firefox</browserName>
 
     <!-- Supported environment name: r2w replica, r2w mirror, karcher,... -->
     <environmentName>R2W Replica Environment</environmentName>
@@ -14,5 +14,5 @@
 
     <takeScreenshots>true</takeScreenshots>
 
-    <reportName>Ready2Wash Automation Testing</reportName>
+    <reportName>Ready2Wash Automation Smoke Results</reportName>
 </config>

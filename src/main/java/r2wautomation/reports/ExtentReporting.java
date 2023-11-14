@@ -18,7 +18,7 @@ public class ExtentReporting {
         if(extent == null) {
             spark = new ExtentSparkReporter(System.getProperty("user.dir") + "/test-output/extent-report/extentReport.html");
 
-            System.out.println(" Report name: " + config.getReportName().strip());
+            System.out.println(" Report name: " + config.getReportName());
 
             extent = new ExtentReports();
 
@@ -27,8 +27,13 @@ public class ExtentReporting {
 
             // Attach desired information to the report
             extent.setSystemInfo("Environment", config.getEnvironmentName());
+            extent.setSystemInfo("Environment URL", config.getEnvironmentURL());
+            extent.setSystemInfo("Web Browser", config.getBrowserName());
             extent.setSystemInfo("User Name", "Aleksandar Tatalovic");
-            spark.config().setDocumentTitle("Extent Report Result");
+            spark.config().setDocumentTitle(config.getReportName());
+            spark.config().setTimelineEnabled(true);
+            String time = spark.config().getTimeStampFormat();
+            System.out.println("Time: " + time);
 
             // Name of the report
             spark.config().setReportName(config.getReportName());

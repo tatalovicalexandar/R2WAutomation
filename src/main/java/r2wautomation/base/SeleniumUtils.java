@@ -19,6 +19,8 @@ public class SeleniumUtils {
     protected WaitUtils waitUtils;
     protected String testName;
     protected Logger log;
+    protected String browserName;
+    SeleniumConfig config = SeleniumConfig.getInstance();
 
     // Get the reference of ExtentReports object to instantiate HTML reporting
     public static ExtentReports report = ExtentReporting.getExtentReportInstance();
@@ -31,10 +33,12 @@ public class SeleniumUtils {
     public void setUp(@Optional("firefox") String browser, ITestContext ctx){
         String testName = ctx.getCurrentXmlTest().getName();
         this.testName = testName;
+        this.browserName = config.getBrowserName();
         log = LogManager.getLogger(testName);
         System.out.println("Test name: " + this.testName);
 
-        BrowserDriverFactory factory = new BrowserDriverFactory(browser, log);
+        BrowserDriverFactory factory = new BrowserDriverFactory(browserName, log);
+        //BrowserDriverFactory factory = new BrowserDriverFactory(browser, log);
         driver = factory.createDriver();
         driver.manage().window().maximize();
 
