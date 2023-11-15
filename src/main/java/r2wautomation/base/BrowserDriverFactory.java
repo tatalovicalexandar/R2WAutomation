@@ -19,6 +19,7 @@ public class BrowserDriverFactory {
         this.browser = browser.toLowerCase();
         this.log = log;
     }
+
     // Create ChromeOptions object
     ChromeOptions optionsChrome = new ChromeOptions();
 
@@ -29,13 +30,7 @@ public class BrowserDriverFactory {
         switch (browser) {
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-                // Add option to start the browser maximized
-                optionsChrome.addArguments("start-maximized");
-                // Add the Headless argument
-                if(config.getHeadlessDriver().equals("true")){
-                    optionsChrome.addArguments("--headless");
-                    log.info("Setting " + config.getBrowserName() + " WebDriver options to run in Headless mode");
-                }
+                setOptionsChrome(optionsChrome);
                 driver.set(new ChromeDriver(optionsChrome));
                 break;
 
@@ -68,10 +63,22 @@ public class BrowserDriverFactory {
             default:
                 log.info("Do not know how to start: " + browser + ", starting default Chrome browser.");
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-                driver.set(new ChromeDriver());
+                setOptionsChrome(optionsChrome);
+                driver.set(new ChromeDriver(optionsChrome));
                 break;
         }
 
         return driver.get();
+    }
+
+    public void setOptionsChrome(ChromeOptions optionsChrome) {
+        // Add option to start the browser maximized
+        optionsChrome.addArguments("start-maximized");
+        // Add the Headless argument
+        if(config.getHeadlessDriver().equals("true")){
+            optionsChrome.addArguments("--headless");
+            log.info("Setting " + config.getBrowserName() + " WebDriver options to run in Headless mode");
+        }
+        this.optionsChrome = optionsChrome;
     }
 }
