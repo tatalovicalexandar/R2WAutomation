@@ -28,7 +28,7 @@ public class SeleniumUtils {
     // Indicate which test to include in report
     public static ExtentTest test;
 
-    @Parameters({ "browser" })
+    //@Parameters({ "browser" })
     @BeforeMethod(alwaysRun=true)
     public void setUp(@Optional("firefox") String browser, ITestContext ctx){
         String testName = ctx.getCurrentXmlTest().getName();

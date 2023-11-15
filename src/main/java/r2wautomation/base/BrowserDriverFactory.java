@@ -29,6 +29,8 @@ public class BrowserDriverFactory {
         switch (browser) {
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+                // Add option to start the browser maximized
+                optionsChrome.addArguments("start-maximized");
                 // Add the Headless argument
                 if(config.getHeadlessDriver().equals("true")){
                     optionsChrome.addArguments("--headless");
@@ -53,6 +55,8 @@ public class BrowserDriverFactory {
                 System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
                 // Create EdgeOptions object
                 EdgeOptions optionsEdge = new EdgeOptions();
+                // Add option to start the browser maximized
+                optionsEdge.addArguments("start-maximized");
                 // Add the Headless argument
                 if(config.getHeadlessDriver().equals("true")){
                     optionsEdge.addArguments("--headless");
